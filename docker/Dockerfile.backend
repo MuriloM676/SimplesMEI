@@ -1,0 +1,22 @@
+# filepath: [Dockerfile.backend](http://_vscodecontentref_/4)
+
+# Usar imagem base do Node.js
+FROM node:16
+
+# Definir diretório de trabalho
+WORKDIR /app
+
+# Copiar arquivos do projeto
+COPY [package.json](http://_vscodecontentref_/5) [package-lock.json](http://_vscodecontentref_/6) ./
+
+# Instalar dependências
+RUN npm install
+
+# Copiar o restante do código
+COPY ./backend .
+
+# Expor a porta do backend
+EXPOSE 5000
+
+# Comando para iniciar o servidor
+CMD ["node", "server.js"]
